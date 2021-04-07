@@ -5,7 +5,7 @@ TOFF = 0
 def setup():
 
     size(400, 400)
-
+    # blendMode(BLEND)
     global flowfield
 
     flowfield = FlowField(scl=5)
@@ -18,7 +18,8 @@ def draw():
     # flowfield.display_grid()
     flowfield.init_noise(zoff=TOFF)
     
-    TOFF += 0.01
+    TOFF += map(mouseY, 0, height, 0.01, 0.5)
+    # TOFF += 0.1
     flowfield.display_field()
 
     print(floor(frameRate))

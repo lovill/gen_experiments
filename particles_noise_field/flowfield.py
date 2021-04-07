@@ -1,4 +1,6 @@
 
+NOISE_PI = 4*TWO_PI
+
 class FlowField(object):
 
     def __init__(self, scl):
@@ -29,7 +31,9 @@ class FlowField(object):
         Assign perlin noise angle values to cells
         """
         # noiseSeed(noise_seed)
-        inc = 0.01
+        # inc = 0.008
+        # inc = 0.25
+        inc = map(mouseX, 0, width, 0.001, 0.5)
         yoff = 0
 
         for y in range(self._rows):
@@ -38,7 +42,7 @@ class FlowField(object):
 
             for x in range(self._cols):
 
-                noise_theta = noise(xoff, yoff, zoff) * TWO_PI * 4
+                noise_theta = noise(xoff, yoff, zoff) * NOISE_PI
 
                 self._cells[x][y] = noise_theta
 
@@ -72,16 +76,21 @@ class FlowField(object):
 
                 theta = self._cells[x][y]
 
+                # print((mouseY/height)*255)
+
                 push()
                 stroke(
-                    map(theta, 0, TWO_PI*4, 0, 255),
-                    0,
-                    map(theta, 0, TWO_PI*4, 255, 0)
+                    map(theta, 0, NOISE_PI, 0, 10),
+                    map(theta, 0, NOISE_PI, 0, 255),                    
+                    map(theta, 0, NOISE_PI, 255, 0),
+                    255
                 )
+
                 noFill()
-                strokeWeight(1)
+                strokeWeight(8)
                 translate(x * self._scl, y * self._scl)
                 rotate(theta)
+                strokeCap(ROUND);
                 line(0, 0, self._scl, 0)
                 # circle(0, 0, self._scl)
                 pop()
