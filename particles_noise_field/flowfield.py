@@ -31,9 +31,9 @@ class FlowField(object):
         Assign perlin noise angle values to cells
         """
         # noiseSeed(noise_seed)
-        # inc = 0.008
-        # inc = 0.25
-        inc = map(mouseX, 0, width, 0.001, 0.5)
+        inc = 0.008
+        # inc = 0.05
+        # inc = map(mouseX, 0, width, 0.001, 0.5)
         yoff = 0
 
         for y in range(self._rows):
@@ -87,7 +87,7 @@ class FlowField(object):
                 )
 
                 noFill()
-                strokeWeight(8)
+                strokeWeight(1)
                 translate(x * self._scl, y * self._scl)
                 rotate(theta)
                 strokeCap(ROUND);

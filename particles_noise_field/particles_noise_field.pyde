@@ -1,6 +1,6 @@
 from flowfield import FlowField
 
-TOFF = 0
+TOFF = 0.05
 
 def setup():
 
@@ -18,8 +18,8 @@ def draw():
     # flowfield.display_grid()
     flowfield.init_noise(zoff=TOFF)
     
-    TOFF += map(mouseY, 0, height, 0.01, 0.5)
-    # TOFF += 0.1
+    # TOFF += map(mouseY, 0, height, 0.01, 0.5)
+    # TOFF += 0.001
     flowfield.display_field()
 
     print(floor(frameRate))
