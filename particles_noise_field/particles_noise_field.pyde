@@ -8,7 +8,7 @@ def setup():
     # blendMode(BLEND)
     global flowfield
 
-    flowfield = FlowField(scl=10)
+    flowfield = FlowField(scl=20)
 
 
 def draw():
@@ -24,8 +24,8 @@ def draw():
     TOFF += 0.001
     # flowfield.display_field()
 
-    y_steps = 70
-    x_steps = 70
+    y_steps = 20
+    x_steps = 20
     max_steps = 500
     for i in range(y_steps):
         y_step = i / float(y_steps)
