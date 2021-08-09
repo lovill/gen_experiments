@@ -10,7 +10,6 @@ def draw():
     background(255)
 
     n_points = 100
-
     verts = []
     for x in range(n_points):
 
@@ -31,12 +30,12 @@ def draw():
     global f_mult
     f_mult += 1.
 
-def wave(x, amplitude, frequency)
 
-    y = amplitude * sin(x * frquency)
+###FUNCTIONS
 
+def wave(x, amplitude, frequency):
+    y = amplitude * sin(x * frequency)
     return y
-
 
 def display_frequency(f):
 
